@@ -1855,6 +1855,16 @@ nav {
   }
 }
 
+.ilustration {
+  max-width: 256px;
+  transition: 0.5s ease;
+}
+@media screen and (max-width: 960px) {
+  .ilustration {
+    max-width: 144px;
+  }
+}
+
 a {
   cursor: pointer;
   text-decoration: none;
@@ -1916,7 +1926,7 @@ option {
   cursor: pointer;
   height: 48px;
   width: 56px;
-  background-image: url("../../svg/icon-search.svg");
+  background-image: url("../svg/icon-search.svg");
   background-repeat: no-repeat;
   background-position: center center;
   background-color: #151b26;

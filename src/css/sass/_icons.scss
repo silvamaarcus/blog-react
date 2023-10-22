@@ -43,3 +43,12 @@
     max-width: 144px;
   }
 }
+
+.ilustration {
+  max-width: 256px;
+  transition: 0.5s ease;
+
+  @include responsive(s) {
+    max-width: 144px;
+  }
+}
