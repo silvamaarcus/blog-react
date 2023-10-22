@@ -1,0 +1,238 @@
+header {
+  width: 100%;
+  height: 80px;
+
+  // elementos lado a lado
+  display: flex;
+  // alinhamento eixo x: elementos em cada canto da página
+  justify-content: space-between;
+  // alinhamento eixo y: elementos se alinham ao centro
+  align-items: center;
+
+  // Menu com Efeito de Trasnparência
+
+  // fazer com que o Menu fique fixo na tela, indenpendente do Scroll
+  position: fixed;
+  // fazer com que o Menu fique a frente de todos os elementos
+  z-index: 999;
+  background-color: rgba(6, 9, 15, 0.4);
+  backdrop-filter: blur(6px);
+}
+
+// tamanhos para logo
+.logo {
+  max-width: 64px;
+  min-width: 48px;
+}
+
+// tipo de botão - desktop
+.cta-desktop {
+  display: block;
+
+  @include responsive(s) {
+    display: none;
+  }
+}
+
+// tipo de botão - mobile
+.cta-mobile {
+  display: none;
+
+  @include responsive(s) {
+    display: block;
+  }
+}
+
+// menu hamburguer
+.bx {
+  
+  // largura e altura do icone
+  width: 40px;
+  height: 40px;
+
+  cursor: pointer;
+
+  // definindo o pai (.bx) com posição relativa para pseudo-classe
+  position: relative;
+
+  // estado inicial do menu hamburguer: desativado
+  display: none;
+
+  // ativar menu hamburguer em telas menores que 960px
+  @include responsive(s) {
+    display: block;
+  }
+
+  &::after {
+    content: "";
+    display: block;
+
+    // ocupar 70% da largura do pai (.bx)
+    width: 70%;
+    // espessura (altura) da linha
+    height: 2px;
+
+    // definindo pseudo-classe com posição absoluta em relação ao pai (.bx)
+    position: absolute;
+
+    // definindo posição dos elementos.
+    transform: translate(-50%, -50%); // centralizar o eixo do elemento
+    top: 35%; // 35% de distância, do topo do pai (.bx)
+    left: 40%; // 40% de distância, a esqueda do pai (.bx)
+
+    border-radius: 2px;
+
+    background-color: $white-light !important;
+  }
+
+  // pseudo-classes
+  &::before {
+    content: "";
+    display: block;
+
+    // ocupar 70% da largura do pai (.bx)
+    width: 70%;
+    // espessura (altura) da linha
+    height: 2px;
+
+    // definindo pseudo-classe com posição absoluta em relação ao pai (.bx)
+    position: absolute;
+
+    // definindo posição dos elementos.
+    transform: translate(-50%, -50%); // centralizar o eixo do elemento
+    top: 65%; // 35% de distância, do topo do pai (.bx)
+    left: 60%; // 40% de distância, a esqueda do pai (.bx)
+
+    border-radius: 2px;
+
+    background-color: $white-light !important;
+  }
+}
+
+nav {
+  // elementos em lado a lado
+  display: flex;
+  // alinhamento eixo x: elementos alinhadaos da esq p/ direita
+  justify-content: flex-start;
+  // alinhamento eixo y: elementos se alinham ao centro
+  align-items: center;
+}
+
+.menu {
+  // removendo bolinhas do link
+  list-style: none;
+
+  // links em lado a lado
+  display: flex;
+
+  // espaçamento entre os links
+  li {
+    margin-left: 24px;
+  }
+
+  // desativar menu hamburguer em telas menores que 960px
+  @include responsive(s) {
+    display: none;
+  }
+}
+
+// ativar e desativar campo de busca, de acordo com tamanho da tela
+.search {
+  display: block;
+
+  @include responsive(s) {
+    display: none;
+  }
+}
+
+// menu mobile
+.menu-mobile {
+  // ocupar 100% da largura do pai (.relative)
+  width: 100%;
+  // ocupar 100% da altura da página, abaixo do menu
+  height: 100vh;
+
+  // Menu com Efeito de Trasnparência
+  margin-top: 80px;
+  background-color: rgba(6, 9, 15, 0.4) !important;
+  backdrop-filter: blur(12px);
+  z-index: 990;
+
+  // transição para mostar menu
+  transition: 0.7s ease;
+
+  position: absolute;
+  top: 0;
+  left: -100%; // menu mobile desativado
+
+  li {
+    border-bottom: 1px solid $black-light;
+
+    .link-menu-mobile {
+      display: inline-block;
+      width: 100%;
+      height: 100%;
+      padding: 24px 16px 24px 16px;
+
+      &:hover {
+        background-color: $black-light;
+        padding-left: 24px;
+      }
+    }
+  }
+}
+.menu-mobile.showmenu {
+  // ocupar 100% da largura do pai (.relative)
+  width: 100%;
+  // ocupar 100% da altura da página, abaixo do menu
+  height: 100vh;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.bx.active {
+  &::after {
+    content: "";
+    display: block;
+
+    width: 70%;
+    height: 2px;
+
+    position: absolute;
+
+    transform: translate(-50%, -50%) rotate(135deg); // girar o tracinho em 135°
+    // centralizar os eixos x e y
+    top: 50%;
+    left: 50%;
+    // transição para tracinho virar 'x'
+    transition: 0.6s ease;
+
+    border-radius: 2px;
+
+    background-color: $white-light !important;
+  }
+
+  // pseudo-classes
+  &::before {
+    content: "";
+    display: block;
+
+    width: 70%;
+    height: 2px;
+
+    position: absolute;
+
+    transform: translate(-50%, -50%) rotate(-315deg); // girar o tracinho em 315°
+    // centralizar os eixos x e y
+    top: 50%;
+    left: 50%;
+    // transição para tracinho virar 'x'
+    transition: 0.6s ease;
+
+    border-radius: 2px;
+
+    background-color: $white-light !important;
+  }
+}
