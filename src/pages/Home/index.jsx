@@ -76,16 +76,20 @@ const Home = () => {
         </div>
       </main>
 
-      <div class="bg-section"> 
+      <div class="bg-section">
         <section class="container">
           <h3 class="ml-2 mb-3">Mais vistos</h3>
           <div class="row">
-            <Card />
+            {mostseen.map((card) => {
+              return <Card key={card.id} content={card} />;
+            })}
           </div>
         </section>
       </div>
 
-      <Banner />
+      {banner.map((banner) => {
+        return <Banner key={banner.id} content={banner} />;
+      })}
     </>
   );
 };
