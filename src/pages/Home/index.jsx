@@ -1,3 +1,7 @@
+// Header e Footer
+import Header from "../Header";
+import Footer from "../Footer";
+
 // Componentes:
 import Hero from "./Hero";
 import Banner from "./Banner";
@@ -53,6 +57,8 @@ const Home = () => {
 
   return (
     <>
+      <Header />
+
       <Hero />
 
       <main className="container">
@@ -90,6 +96,8 @@ const Home = () => {
       {banner.map((banner) => {
         return <Banner key={banner.id} content={banner} />;
       })}
+
+      <Footer />
     </>
   );
 };
