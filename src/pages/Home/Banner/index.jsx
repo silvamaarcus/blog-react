@@ -1,3 +1,6 @@
+//Link
+import { Link } from "react-router-dom";
+
 const Banner = ({ content }) => {
   return (
     <>
@@ -10,15 +13,15 @@ const Banner = ({ content }) => {
           <h6 className="uppercase color-primary text-center">
             {content.category}
           </h6>
-          <a href="" className="link-title">
+          <Link to={"/post/" + content.id} className="link-title">
             <h2 className="mt-1 text-center">{content.title}</h2>
-          </a>
+          </Link>
 
           <p className="my-2 text-center">{content.resume}</p>
           <div className="flex-center">
-            <a href="" className="link color-primary p-0">
+            <Link to={"/post/" + content.id} className="link color-primary p-0">
               Ler mais
-            </a>
+            </Link>
           </div>
         </div>
       </section>
