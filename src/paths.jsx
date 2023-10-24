@@ -21,14 +21,20 @@ const Paths = () => {
     <>
       {/* Envolvendo estruturas com BrowserRouter */}
       <BrowserRouter>
-      {/* Estabelecendo rotas das páginas. */}
+        {/* Estabelecendo rotas das páginas. */}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/login" element={<Login />} />
           <Route path="/profile" element={<Profile />} />
-          <Route path="/post" element={<Post />} />
+
+          {/* :idPost -> Faremos uma requisição através do número setado neste id.
+          Em seguida, o número será passado como parametro na url e carregará página com post escolhido.
+          Isso tudo se dá usando o "useParams", no componente Post.
+          */}
+          <Route path="/post/:idPost" element={<Post />} />
+
           <Route path="/search" element={<Search />} />
           {/* Quando qualquer página, além das listadas acima, for acessada: */}
           <Route path="*" element={<NotFound />} />
