@@ -34,8 +34,8 @@ const Paths = () => {
           Isso tudo se dá usando o "useParams", no componente Post.
           */}
           <Route path="/post/:idPost" element={<Post />} />
-
-          <Route path="/search" element={<Search />} />
+          {/* Mesmo passo anterior, desta vez, será passado uma string. */}
+          <Route path="search/:word_search" element={<Search />} />
           {/* Quando qualquer página, além das listadas acima, for acessada: */}
           <Route path="*" element={<NotFound />} />
         </Routes>
